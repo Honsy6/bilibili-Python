@@ -3,17 +3,13 @@ print(
 具有 通用性，输入url地址
 具有 视频、音频保存 以及 视频、音频合并一条龙服务
 注意：视频的合成需要使用第三方工具 ffmpeg ，若无此工具程序便无法正常运行！！
-
-bilibili爬虫完全版3.0说明：
-1.修复了关于标题有空格或特殊符号时视频无法正常合成的缺陷。
-2.改进了视频标题爬取方式，标题不再有类似‘bilibili’字眼的后缀。
-''')
+爬取的视频清晰度默认为非会员最高清晰度，如要更改请打开源码更改。
+'''
 
 import requests
 import re
 import os
 
-#url = 'https://www.bilibili.com/video/BV14h411q7Kh?p=2&t=148.7'
 url = input('请输入url地址：')
 print('url地址为：',url)
 print()
@@ -41,7 +37,7 @@ print('——————成功获取标题——————')
 print()
 
 print('······正在解析视频、音频地址······')
-url_1 = re.findall('baseUrl":"(.*?)"',response_url.text)[0]
+url_1 = re.findall('baseUrl":"(.*?)"',response_url.text)[0]     # 在这改视频清晰度，将中括号内数字 “0” 改为 “1” 将爬取非会员第二清晰度。
 url_2 = re.findall('baseUrl":"(.*?)"',response_url.text)[-3]
 print('地址_1为：',url_1)
 print('地址_2为：',url_2)
@@ -59,7 +55,6 @@ print('——————成功保存视频、音频文件——————')
 print()
 
 print('······正在合成视频······')   # 视频的合成，使用第三方工具 ffmpeg
-#d = "D:\Study\Python\爬虫\Bilibili爬虫\\"
 a = '_1_.mp4'
 b = '_2_.mp3'
 c = title+'.mp4'
