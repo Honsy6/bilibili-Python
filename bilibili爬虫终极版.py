@@ -8,10 +8,7 @@ import re
 import os
 import time
 
-'''https://www.bilibili.com/video/BV18t411R7ds/?spm_id_from=333.788.recommend_more_video.0'''
-
-#url = 'https://www.bilibili.com/video/BV14h411q7Kh?p=2&t=148.7'
-print('将所有要爬取的视频网站输入后按回车即可')
+print('输入一个网址按一次回车，直到全部网址输入完毕再按一次回车。')
 print('注意：视频网址请一个一个输入!!!否则会报错!!')
 
 b = []
@@ -48,7 +45,7 @@ for url in b:
     print()
 
     print('······正在解析视频、音频地址······')
-    url_1 = re.findall('baseUrl":"(.*?)"',response_url.text)[1]
+    url_1 = re.findall('baseUrl":"(.*?)"',response_url.text)[0]     # 跟完全版一样，在这改清晰度
     url_2 = re.findall('baseUrl":"(.*?)"',response_url.text)[-3]
     print('地址_1为：',url_1)
     print('地址_2为：',url_2)
@@ -66,12 +63,12 @@ for url in b:
     print()
 
     print('······正在合成视频······')   # 视频的合成，使用第三方工具 ffmpeg
-    #d = "D:\Study\Python\爬虫\Bilibili爬虫"
     a = '_1_.mp4'
     b = '_2_.mp3'
     c = title+'.mp4'
     os.system('ffmpeg.exe -i '+a+' -i '+b+' -c copy '+c)
     print('——————成功合成视频——————')
+    print('合成的视频标题为：'+title+'.mp4')
     print()
     time.sleep(3)
 
