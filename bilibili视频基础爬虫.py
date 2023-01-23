@@ -3,7 +3,7 @@ import re
 import os
 import json
 """请输入想要的清晰度，数字越高清晰度越低，0为最高清晰度"""
-quality = 0
+quality = 0       #直接改数字
 
 url = input('请输入url地址：')
 print(f'url地址为:{url}')
