@@ -12,8 +12,7 @@ print()
 print('······获取网页源代码中······')
 headers = {
     'Referer': "https://www.bilibili.com",
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36',
-    "Cookie": "buvid3=43CAB701-090F-87DB-249E-34CBC6D16F0C81045infoc; i-wanna-go-back=-1; b_lsid=B10C4310AF_17E9A45F3D9; _uuid=E145C5FF-1079C-16ED-8EBF-6FC68FAE42BC82758infoc; buvid4=AA587054-A73F-D521-D6C6-AE0A1DD7157C83625-022012714-kQX+zlqLtJOPCa19J7/+Hw%3D%3D; CURRENT_BLACKGAP=0; fingerprint=a7e8cac5673c057781c866b795f68f1d; buvid_fp_plain=undefined; buvid_fp=581ab9f28ad1d3f40722df336ef13218; SESSDATA=1d6a85a8%2C1658817818%2C3bb73%2A11; bili_jct=e984ce29a16df280701c8935ac1bb5bd; DedeUserID=363847475; DedeUserID__ckMd5=10fb51d003f11b1c; sid=6nxasi0u; b_ut=5; LIVE_BUVID=AUTO4416432658293514; CURRENT_FNVAL=4048; blackside_state=1; rpdid=|(u))ku)um~)0J'uYRJkYYRJl; CURRENT_QUALITY=64; bp_video_offset_363847475=620308155041103600; innersign=1; PVID=2"
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36'
 }
 
 response_url = requests.get(url,headers=headers)
@@ -49,7 +48,7 @@ print('——————成功保存视频、音频文件——————')
 print()
 
 print('······正在合成视频······')   # 视频的合成，使用第三方工具 ffmpeg
-os.system(f'ffmpeg.exe -i _1_mp4 -i _1_.mp3 -c copy "{title}.mp4"')
+os.system(f'ffmpeg.exe -i _1_.mp4 -i _1_.mp3 -c copy "{title}.mp4"')
 print('——————成功合成视频——————')
 print()
 
@@ -57,5 +56,5 @@ os.remove('_1_.mp4')
 os.remove('_1_.mp3')
 print(f'合成的视频标题为:{title}.mp4')
 print('——————程序已结束——————')
-print('————ps: _1_.mp4 与 _2_mp3 为程序运行时的临时文件，可手动删除————')
+print('————ps: _1_.mp4 与 _2_.mp3 为程序运行时的临时文件，可手动删除————')
 
